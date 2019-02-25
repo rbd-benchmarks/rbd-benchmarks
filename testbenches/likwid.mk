@@ -21,4 +21,10 @@ else ifeq ($(EVENTS),uops)
 CXXFLAGS += -DUOPS_EVENTS
 endif
 
+LIKWID_DIR = $(RBD_BENCHMARKS)/likwid/install
+
+CXXFLAGS += -I$(LIKWID_DIR)/include
+
+LDFLAGS += -L$(LIKWID_DIR)/lib
+LDFLAGS += -Wl,-rpath,$(LIKWID_DIR)/lib
 LDFLAGS += -llikwid
