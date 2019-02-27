@@ -1,12 +1,14 @@
 diff -ruN robcogen/exe/core.cfg robcogen2/exe/core.cfg
---- robcogen/exe/core.cfg	2019-02-21 05:16:25.067668840 -0500
-+++ robcogen2/exe/core.cfg	2019-02-21 05:17:04.874525636 -0500
-@@ -6,7 +6,7 @@
+--- robcogen/exe/core.cfg	2019-02-27 13:31:36.073137521 -0500
++++ robcogen2/exe/core.cfg	2019-02-27 13:31:48.640788977 -0500
+@@ -6,8 +6,8 @@
  # Basic output folders for code generation.
  # Generated files will appear under <base>/[<robot>/]{cpp, maxima, ...}
  # The sub-folder <robot> will be used if the following is set to 'true'
 -generator.outdir.robotsubdir = false
+-generator.outdir.base   = /tmp/gen
 +generator.outdir.robotsubdir = true
- generator.outdir.base   = /tmp/gen
++generator.outdir.base   = ../../gen
  generator.outdir.cpp    = cpp
  generator.outdir.matlab = octave
+ generator.outdir.maxima = maxima

@@ -1,4 +1,4 @@
-GEN_DIR ?= gen
+GEN_DIR := gen
 BUILD_DIR ?= build
 INSTALL_DIR ?= install
 
@@ -37,22 +37,19 @@ $(ROBCOGEN_ZIP_LOCAL):
 $(ROBCOGEN_DEST_DIR): $(ROBCOGEN_ZIP_LOCAL)
 	unzip -q -o $(ROBCOGEN_ZIP_LOCAL)
 	mv -f $(ROBCOGEN_BASENAME) $(ROBCOGEN_DEST_DIR)
-	patch -s -p0 < robcogen_robot_subdir.patch
+	patch -s -p0 < robcogen_config.patch
 	patch -s -p0 < robcogen_zero_gravity.patch
 	touch $(ROBCOGEN_DEST_DIR)
 
 # Generate C++ code for .kindsl files in $(KINDSL_DIR)
 # example: `make gen/iiwa`
-$(GEN_DIR)/% : $(KINDSL_DIR)/%.kindsl $(ROBCOGEN_DEST_DIR)
+$(GEN_DIR)/%/cpp : $(KINDSL_DIR)/%.kindsl $(ROBCOGEN_DEST_DIR)
 	mkdir -p $(GEN_DIR)
 	# Piping "1\n4\n28\n" to robcogen:
 	# option 1: all Maxima targets
 	# option 4: all C++ targets
 	# option 28: exit
 	cd $(ROBCOGEN_DEST_DIR)/exe && echo "1\n4\n28\n" | ./robcogen.sh $< > /dev/null
-	# RobCoGen's output is in a temp directory. Move it to $(GEN_DIR):
-	mkdir -p $@
-	mv -f $(ROBCOGEN_TMP_GEN_DIR)/$*/cpp/* $@
 	# Patch the CMakeLists.txt to have CMake pick up the IIT headers in the iit subdirectory
 	# This avoids requiring users to install these headers into /usr/ and requiring sudo as a result.
 	# Also turn off invalid contexpr warnings (turned into errors), needed to build with OSX.
@@ -61,7 +58,7 @@ $(GEN_DIR)/% : $(KINDSL_DIR)/%.kindsl $(ROBCOGEN_DEST_DIR)
 	patch $@/CMakeLists.txt robcogen_cmakelists_dont_align_statically.patch
 	touch $@
 
-$(INSTALL_DIR)/lib/libiitgen%.$(LIBEXT) : $(GEN_DIR)/% $(EIGEN_INCLUDE_DIR)
+$(INSTALL_DIR)/lib/libiitgen%.$(LIBEXT) : $(GEN_DIR)/%/cpp $(EIGEN_INCLUDE_DIR)
 	{ \
 	set -e ;\
 	mkdir -p $(BUILD_DIR)/$* ;\

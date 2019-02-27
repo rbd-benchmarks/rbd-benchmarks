@@ -10,7 +10,7 @@ const simplifieddir = joinpath(urdfdir, "simplified")
 const urdf2kindsl = joinpath(@__DIR__, "..", "urdf2kindsl", "urdf2kindsl.py")
 const libdir = joinpath(@__DIR__, "..", "..", "libs")
 const robcogen = joinpath(libdir, "robcogen", "robcogen", "exe", "robcogen.sh")
-const robcogen_gen_dir = "/tmp/gen"
+const robcogen_gen_dir = joinpath(libdir, "robcogen", "gen")
 
 for urdf in filter(x -> endswith(x, ".urdf"), readdir(sourcedir))
     println("Processing $urdf")
