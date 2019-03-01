@@ -1,0 +1,3 @@
+[submodule "description/urdf2kindsl"]
+	path = description/urdf2kindsl
+	url = https://tkoolen@bitbucket.org/tkoolen/urdf2kindsl.git

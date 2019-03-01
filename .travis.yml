@@ -1,0 +1,51 @@
+language: generic
+sudo: required # for likwid
+addons:
+  apt:
+    packages:
+notifications:
+  email: false
+branches:
+  only:
+    - master
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-xenial-6.0
+          packages:
+            - clang-6.0
+            - cmake
+            - wget
+            - coreutils
+            - unzip
+            - libboost-dev
+            - libboost-system-dev
+            - libboost-filesystem-dev
+            - libboost-test-dev # TODO: shouldn't be necessary
+            - tar
+            - liburdfdom-dev
+            # - maxima # seems to be too old
+      env:
+        - CC_=clang-6.0
+        - CXX_=clang++-6.0
+before_install:
+  - export CC=${CC_}
+  - export CXX=${CXX_}
+  - ${CC} --version
+  - ${CXX} --version
+  - java --version
+  - wget https://downloads.sourceforge.net/project/maxima/Maxima-Linux/5.42.2-Linux/maxima-common_5.42.2-1_all.deb
+  - sudo dpkg -i maxima-common_5.42.2-1_all.deb
+  - wget https://downloads.sourceforge.net/project/maxima/Maxima-Linux/5.42.2-Linux/maxima-sbcl_5.42.2-1_amd64.deb
+  - sudo dpkg -i maxima-sbcl_5.42.2-1_amd64.deb
+  - sudo pip install numpy # for urdf2kindsl
+# install:
+script:
+  - ./.travis/run.sh
+# after_failure:
+# after_success:

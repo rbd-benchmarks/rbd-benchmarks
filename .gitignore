@@ -1,0 +1,19 @@
+# csv directory
+csv
+
+# results_check directory
+results_check
+
+# OSX Desktop Services Store files
+**/.DS_Store
+
+# object files
+*.d
+*.o
+*.pyc
+
+# emacs temp files
+*~
+
+# vi temp files
+*.swp

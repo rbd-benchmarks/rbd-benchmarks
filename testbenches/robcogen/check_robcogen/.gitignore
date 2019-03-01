@@ -1,0 +1,6 @@
+*.o
+main
+cachegrind.out
+result/
+check_robcogen
+

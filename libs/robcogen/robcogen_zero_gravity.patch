@@ -1,0 +1,12 @@
+diff -ruN robcogen/etc/cpp-iitrbd/iit/rbd/rbd.h robcogen-patched/etc/cpp-iitrbd/iit/rbd/rbd.h
+--- robcogen/etc/cpp-iitrbd/iit/rbd/rbd.h	2018-01-23 08:58:24.000000000 -0500
++++ robcogen-patched/etc/cpp-iitrbd/iit/rbd/rbd.h	2019-02-20 16:56:25.122933852 -0500
+@@ -132,7 +132,7 @@
+  * This value should always be positive, so that an application
+  * chooses the sign according to its conventions.
+  */
+-static const double g = 9.81;
++static const double g = 0.0;
+ 
+ }
+ }

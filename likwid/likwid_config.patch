@@ -1,0 +1,11 @@
+--- config.mk	2019-02-22 14:37:31.905452369 -0500
++++ config2.mk	2019-02-22 14:38:04.120563918 -0500
+@@ -10,7 +10,7 @@
+ COMPILER = GCC#NO SPACE
+ 
+ # Path were to install likwid
+-PREFIX = /usr/local
++PREFIX = $(abspath ../install)
+ 
+ # Set the default mode for MSR access.
+ # This can usually be overriden on the commandline.

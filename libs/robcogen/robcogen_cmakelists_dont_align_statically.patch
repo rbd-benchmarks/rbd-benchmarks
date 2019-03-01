@@ -1,0 +1,11 @@
+--- CMakeLists.txt	2019-02-22 13:24:21.986648915 -0500
++++ CMakeLists2.txt	2019-02-22 13:25:43.824470123 -0500
+@@ -15,7 +15,7 @@
+ set(HEADER_INSTALL_ROOT /usr/local/include/ CACHE PATH "Where to install iiwa headers")
+ set(LIB_INSTALL_ROOT    /usr/local/lib/     CACHE PATH "Where to install iiwa library")
+ 
+-SET(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -O3 -march=native -mtune=native -D EIGEN_NO_DEBUG")
++SET(CMAKE_CXX_FLAGS "-g -std=c++11 -Wall -O3 -march=native -mtune=native -D EIGEN_NO_DEBUG -D EIGEN_DONT_ALIGN_STATICALLY")
+ 
+ set(LIB_NAME iitgeniiwa)
+ 
