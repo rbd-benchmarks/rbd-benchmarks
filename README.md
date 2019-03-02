@@ -1,6 +1,6 @@
 ## RBD-Benchmarks
 
-[![Build Status](https://travis-ci.com/tkoolen/rbd-benchmarks.svg?token=cWsvroedPoHkJVtwtpFv&branch=master)](https://travis-ci.com/tkoolen/rbd-benchmarks)
+[![Build Status](https://travis-ci.org/rbd-benchmarks/rbd-benchmarks.svg?branch=master)](https://travis-ci.org/rbd-benchmarks/rbd-benchmarks)
 
 Main Directories:
 
