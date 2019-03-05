@@ -85,7 +85,7 @@ sudo make install
 cd ..
 ```
 
-Note that likwid will be installed locally, but `sudo` is required to `chown` the locally installed files to `root`, since these files [need access to model-specific register devicd files](https://github.com/RRZE-HPC/likwid/wiki/Build#setting-up-access-for-hardware-performance-monitoring).
+Note that likwid will be installed locally, but `sudo` is required to `chown` the locally installed files to `root`, since these files [need access to model-specific register device files](https://github.com/RRZE-HPC/likwid/wiki/Build#setting-up-access-for-hardware-performance-monitoring).
 
 Hardware performance counters differ per CPU architecture. Currently, only the Kaby Lake CPU architecture has been tested. Running the likwid experiments on other CPU architectures is likely to result in a program crash.
 
