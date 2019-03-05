@@ -5,7 +5,7 @@
  
  # Include directories
  include_directories(${EIGEN_ROOT})
-+include_directories(../../robcogen/etc/cpp-iitrbd/) # for IIT headers
++include_directories(../../../robcogen/etc/cpp-iitrbd/) # for IIT headers
  
  # Add library
  add_library(${LIB_NAME} SHARED ${SOURCES})
