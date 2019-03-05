@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rbd-benchmarks/rbd-benchmarks.svg?branch=master)](https://travis-ci.org/rbd-benchmarks/rbd-benchmarks)
 
+This repository contains the benchmark suite associated with the paper "Benchmarking and Workload Analysis of Robot Dynamics Algorithms", submitted to IROS 2019.
+
 ### Repository layout
 
 * `description` contains robot models
