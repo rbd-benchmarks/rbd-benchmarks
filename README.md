@@ -4,6 +4,17 @@
 
 This repository contains the benchmark suite associated with the paper "Benchmarking and Workload Analysis of Robot Dynamics Algorithms", submitted to IROS 2019.
 
+```
+@inproceedings{neuman2019benchmarking,
+  title={Benchmarking and workload analysis of robot dynamics algorithms},
+  author={Neuman, Sabrina M and Koolen, Twan and Drean, Jules and Miller, Jason E and Devadas, Srinivas},
+  booktitle={2019 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={5235--5242},
+  year={2019},
+  organization={IEEE}
+}
+```
+
 ### Repository layout
 
 * `description` contains robot models
